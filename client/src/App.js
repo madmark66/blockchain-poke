@@ -36,7 +36,7 @@ function App() {
               setContract(instance);
               setAccounts(accounts);
 
-              //const GameOwner = await contract.methods.gameOwner().call();
+              const GameOwner = contract.methods.gameOwner().call();
               //setOwner(GameOwner);
               //console.log(owner);
 
@@ -96,8 +96,9 @@ function App() {
       <div>
 
         <h1>Hi, your address is: {accounts} </h1>
-        <h1>You are the game owner, you can create new monsters and give to players</h1>
-          <form onSubmit={handleSubmit}>
+        
+         {1==1?<form onSubmit={handleSubmit}>
+           <h2>You are the game owner, you can create new monsters and give to players</h2>
               <label>
                 Name for New Monster:
                 <input type="text" name="name" value={name}
@@ -111,7 +112,8 @@ function App() {
               </label>
 
               <input type="submit" value="Create Monster" />
-          </form> 
+          </form>:<p>you are not GameOwner, you can not create monsters</p> }
+          
       </div>
 
       <div>
